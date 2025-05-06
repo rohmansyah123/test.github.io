@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Nama Proyek/Aplikasi Anda]</title>
-    <meta name="description" content="[Deskripsi singkat proyek/aplikasi Anda]">
+    <title>[Nama Situs Kencan Anda] - Temukan Koneksi Anda</title>
+    <meta name="description" content="Temukan teman kencan dan koneksi yang bermakna di [Nama Situs Kencan Anda]. Bergabunglah dengan komunitas kami!">
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f8f8;
             color: #333;
             line-height: 1.6;
         }
         .container {
             max-width: 960px;
             margin: 0 auto;
-            padding: 20px; /* Reduced padding for better responsiveness */
+            padding: 40px;
             text-align: center;
         }
         header {
-            padding: 40px 0; /* Reduced padding */
+            padding: 60px 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
         }
         header h1 {
-            font-size: 2.5em; /* Slightly smaller font for better fit */
+            font-size: 3em;
+            color: #e91e63;
             margin-bottom: 10px;
-            color: #007bff;
         }
         header p {
-            font-size: 1.1em; /* Slightly smaller font */
+            font-size: 1.2em;
             color: #555;
+            margin-bottom: 20px;
         }
         .cta-button {
             display: inline-block;
-            padding: 10px 20px; /* Smaller padding */
-            background-color: #007bff;
+            padding: 12px 24px;
+            background-color: #e91e63;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -43,108 +46,125 @@
             margin-top: 20px;
         }
         .cta-button:hover {
-            background-color: #0056b3;
+            background-color: #d81b60;
         }
         section {
-            padding: 30px 0; /* Reduced padding */
-            background-color: white;
+            padding: 40px 0;
+            background-color: #fff;
             border-bottom: 1px solid #eee;
-            text-align: left; /* Align text to left in sections for better readability on smaller screens */
+            text-align: center;
         }
         section h2 {
-            font-size: 1.8em; /* Smaller heading */
+            font-size: 2em;
             color: #333;
-            margin-bottom: 15px;
-            text-align: center; /* Center headings in sections */
-        }
-        section ul {
-            padding-left: 20px;
-        }
-        section li {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         section p {
             color: #555;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
-        section pre {
-            overflow-x: auto; /* Enable horizontal scrolling for code blocks on small screens */
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
-        footer {
+        .feature {
             text-align: center;
-            padding: 20px 0;
-            color: #777;
-            font-size: 0.8em; /* Smaller font */
+        }
+        .feature img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            color: #e91e63;
+            margin-bottom: 5px;
         }
 
-        /* Media queries for responsiveness */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
-            }
-            header {
-                padding: 30px 0;
+                padding: 20px;
             }
             header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
-            header p {
-                font-size: 1em;
-            }
-        }
-
-        @media (max-width: 576px) {
-            header h1 {
-                font-size: 1.7em;
-            }
-            header p {
-                font-size: 0.9em;
-            }
-            .cta-button {
-                font-size: 0.9em;
-                padding: 8px 16px;
-            }
-            section h2 {
-                font-size: 1.5em;
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>[Nama Proyek/Aplikasi Anda]</h1>
-            <p>[Slogan singkat atau deskripsi satu baris]</p>
-            <a href="[Link ke repositori GitHub atau aksi lainnya]" class="cta-button">Lihat di GitHub</a>
-        </header>
 
-        <section>
-            <h2>Fitur Utama</h2>
-            <ul>
-                <li>[Fitur 1]</li>
-                <li>[Fitur 2]</li>
-                <li>[Fitur 3]</li>
-            </ul>
-            <p>[Penjelasan lebih lanjut tentang fitur-fitur proyek Anda.]</p>
-        </section>
+    <header>
+        <div class="container">
+            <h1>[Nama Situs Kencan Anda]</h1>
+            <p>Temukan orang-orang menarik dan bangun koneksi yang Anda cari.</p>
+            <a href="[Link Pendaftaran]" class="cta-button">Bergabung Sekarang</a>
+        </div>
+    </header>
 
-        <section>
-            <h2>Cara Penggunaan</h2>
-            <p>[Instruksi singkat tentang cara menggunakan proyek/aplikasi Anda.]</p>
-            <pre><code>
-                # Contoh perintah
-                git clone https://github.com/[username]/[repo-name].git
-                cd [repo-name]
-                # ... langkah lainnya ...
-            </code></pre>
-        </section>
+    <section>
+        <div class="container">
+            <h2>Temui Orang-Orang Hebat</h2>
+            <p>Lihat beberapa wajah menarik yang siap untuk bertemu Anda!</p>
+            <div class="feature-grid">
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80/FFC0CB/FFFFFF?Text=User1" alt="Pengguna 1">
+                    <h3>[Nama Pengguna 1]</h3>
+                    <p>[Deskripsi singkat atau minat]</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80/ADD8E6/FFFFFF?Text=User2" alt="Pengguna 2">
+                    <h3>[Nama Pengguna 2]</h3>
+                    <p>[Deskripsi singkat atau minat]</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80/90EE90/FFFFFF?Text=User3" alt="Pengguna 3">
+                    <h3>[Nama Pengguna 3]</h3>
+                    <p>[Deskripsi singkat atau minat]</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80/FFA07A/FFFFFF?Text=User4" alt="Pengguna 4">
+                    <h3>[Nama Pengguna 4]</h3>
+                    <p>[Deskripsi singkat atau minat]</p>
+                </div>
+            </div>
+            <p>Ada ribuan orang menarik lainnya yang menunggu untuk Anda temui!</p>
+            <a href="[Link Jelajahi Pengguna]" class="cta-button">Jelajahi Lebih Banyak</a>
+        </div>
+    </section>
 
-        <footer>
-            <p>&copy; [Tahun] [Nama Anda atau Organisasi]</p>
-        </footer>
-    </div>
+    <section>
+        <div class="container">
+            <h2>Bagaimana Cara Kerjanya?</h2>
+            <p>Mudah dan cepat untuk mulai bertemu orang baru.</p>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Buat Profil</h3>
+                    <p>Bagikan siapa diri Anda dan apa yang Anda cari.</p>
+                </div>
+                <div class="feature">
+                    <h3>Temukan Kecocokan</h3>
+                    <p>Telusuri profil atau gunakan fitur pencocokan kami.</p>
+                </div>
+                <div class="feature">
+                    <h3>Mulai Berinteraksi</h3>
+                    <p>Kirim pesan dan atur kencan!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 [Nama Situs Kencan Anda]. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
