@@ -6,246 +6,37 @@
     <title>[Nama Situs Kencan Anda] - Temukan Koneksi Anda</title>
     <meta name="description" content="Temukan teman kencan dan koneksi yang bermakna di [Nama Situs Kencan Anda]. Bergabunglah dengan komunitas kami!">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
-            line-height: 1.7;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
-            text-align: center;
-        }
-        header {
-            background: linear-gradient(135deg, #ff69b4, #ffc0cb); /* Gradien romantis */
-            color: white;
-            padding: 100px 0;
-            margin-bottom: 40px;
-        }
-        header .container {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-        }
-        header p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #fff;
-            color: #ff69b4;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-        }
-        .cta-button:hover {
-            background-color: #f0f0f0;
-        }
-        section {
-            padding: 60px 0;
-            background-color: white;
-            border-bottom: 1px solid #eee;
-            text-align: center;
-        }
-        section h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        .user-gallery-section {
-            text-align: center;
-            padding: 40px 0;
-        }
-        .user-gallery-section h3 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .user-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ukuran gambar diperbesar sedikit */
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        .user-profile-container {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
-            width: 150px; /* Ukuran tetap untuk lingkaran */
-            height: 150px; /* Ukuran tetap untuk lingkaran */
-            margin: 0 auto; /* Agar lingkaran berada di tengah grid cell */
-        }
-        .user-profile-container:hover {
-            transform: scale(1.05);
-        }
-        .user-profile-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.2em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .user-profile-container:hover .play-button {
-            opacity: 1;
-        }
-        .play-button::before {
-            content: '\25B6'; /* Unicode play symbol */
-            font-size: 1.5em;
-            margin-left: 3px;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-        .feature {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        .feature h3 {
-            color: #ff69b4;
-            margin-bottom: 10px;
-        }
-        .explore-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #ff69b4;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-        }
-        .explore-button:hover {
-            background-color: #d81b60;
-        }
-
-        /* Popup Styles */
-        .profile-popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-        }
-        .profile-popup {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            max-width: 80%;
-            max-height: 80%;
-            overflow: auto;
-            position: relative;
-        }
-        .popup-image {
-            max-width: 100%;
-            max-height: 50vh;
-            object-fit: contain;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        .popup-close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5em;
-            color: #555;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .popup-details h3 {
-            color: #ff69b4;
-            margin-bottom: 10px;
-        }
-        .popup-details p {
-            color: #333;
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #777;
-            font-size: 0.9em;
-            background-color: #f4f4f4;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            header {
-                padding: 80px 0;
-            }
-            header h1 {
-                font-size: 3em;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .user-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Kembali ke ukuran lebih kecil di mobile */
-            }
-            .user-profile-container {
-                width: 120px;
-                height: 120px;
-            }
-            .play-button {
-                width: 30px;
-                height: 30px;
-                font-size: 1em;
-            }
-            .play-button::before {
-                font-size: 1.2em;
-                margin-left: 2px;
-            }
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; line-height: 1.7; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px; text-align: center; }
+        header { background: linear-gradient(135deg, #ff69b4, #ffc0cb); color: white; padding: 100px 0; margin-bottom: 40px; }
+        header .container { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); }
+        header h1 { font-size: 3.5em; margin-bottom: 15px; }
+        header p { font-size: 1.3em; margin-bottom: 30px; }
+        .cta-button, .explore-button { display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1em; transition: background-color 0.3s ease; margin-top: 20px; }
+        .cta-button { background-color: #fff; color: #ff69b4; } .cta-button:hover { background-color: #f0f0f0; }
+        .explore-button { background-color: #ff69b4; } .explore-button:hover { background-color: #d81b60; }
+        section { padding: 60px 0; background-color: white; border-bottom: 1px solid #eee; text-align: center; }
+        section h2 { font-size: 2.5em; color: #333; margin-bottom: 30px; }
+        .user-gallery-section { text-align: center; padding: 40px 0; }
+        .user-gallery-section h3 { font-size: 2em; color: #333; margin-bottom: 20px; }
+        .user-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .user-profile-container { position: relative; cursor: pointer; overflow: hidden; border-radius: 50%; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease-in-out; width: 150px; height: 150px; margin: 0 auto; }
+        .user-profile-container:hover { transform: scale(1.05); }
+        .user-profile-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2em; display: flex; justify-content: center; align-items: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; }
+        .user-profile-container:hover .play-button { opacity: 1; }
+        .play-button::before { content: '\25B6'; font-size: 1.5em; margin-left: 3px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; text-align: left; }
+        .feature { padding: 20px; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+        .feature h3 { color: #ff69b4; margin-bottom: 10px; }
+        .profile-popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1001; justify-content: center; align-items: center; }
+        .profile-popup { background-color: #fff; border-radius: 8px; padding: 30px; text-align: center; max-width: 80%; max-height: 80%; overflow: auto; position: relative; }
+        .popup-image { max-width: 100%; max-height: 50vh; object-fit: contain; margin-bottom: 20px; border-radius: 8px; }
+        .popup-close-button { position: absolute; top: 10px; right: 10px; font-size: 1.5em; color: #555; cursor: pointer; background: none; border: none; }
+        .popup-details h3 { color: #ff69b4; margin-bottom: 10px; }
+        .popup-details p { color: #333; margin-bottom: 15px; text-align: left; }
+        footer { text-align: center; padding: 40px 0; color: #777; font-size: 0.9em; background-color: #f4f4f4; }
+        @media (max-width: 768px) { .container { padding: 20px; } header { padding: 80px 0; } header h1 { font-size: 3em; } .features-grid { grid-template-columns: 1fr; } .user-gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); } .user-profile-container { width: 120px; height: 120px; } .play-button { width: 30px; height: 30px; font-size: 1em; } .play-button::before { font-size: 1.2em; margin-left: 2px; } }
     </style>
 </head>
 <body>
@@ -261,46 +52,16 @@
         <div class="container">
             <h3>Pengguna Baru</h3>
             <div class="user-gallery">
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/e91e63/ffffff?Text=NB1" alt="Pengguna Baru 1">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e91e63/ffffff?Text=NB1-Large', 'Baru 1', 'Senang bertemu orang baru!')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/9c27b0/ffffff?Text=NB2" alt="Pengguna Baru 2">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/9c27b0/ffffff?Text=NB2-Large', 'Baru 2', 'Mencari teman kencan.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/3f51b5/ffffff?Text=NB3" alt="Pengguna Baru 3">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3f51b5/ffffff?Text=NB3-Large', 'Baru 3', 'Siap untuk petualangan baru.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/00bcd4/ffffff?Text=NB4" alt="Pengguna Baru 4">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bcd4/ffffff?Text=NB4-Large', 'Baru 4', 'Suka ngobrol dan berbagi cerita.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/4caf50/ffffff?Text=NB5" alt="Pengguna Baru 5">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4caf50/ffffff?Text=NB5-Large', 'Baru 5', 'Mencari koneksi yang tulus.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/ff9800/ffffff?Text=NB6" alt="Pengguna Baru 6">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ff9800/ffffff?Text=NB6-Large', 'Baru 6', 'Tertarik dengan seni dan musik.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/795548/ffffff?Text=NB7" alt="Pengguna Baru 7">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/795548/ffffff?Text=NB7-Large', 'Baru 7', 'Suka berolahraga dan kuliner.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/607d8b/ffffff?Text=NB8" alt="Pengguna Baru 8">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/607d8b/ffffff?Text=NB8-Large', 'Baru 8', 'Menikmati waktu santai dengan buku.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/f44336/ffffff?Text=NB9" alt="Pengguna Baru 9">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f44336/ffffff?Text=NB9-Large', 'Baru 9', 'Penyuka film dan diskusi menarik.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/00897b/ffffff?Text=NB10" alt="Pengguna Baru 10">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00897b/ffffff?Text=NB10-Large', 'Baru 10', 'Semangat mencari teman baru.')"></button>
-                </div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/e91e63/ffffff?Text=NB1" alt="Pengguna Baru 1"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e91e63/ffffff?Text=NB1-Large', 'Baru 1', 'Senang bertemu orang baru!')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/9c27b0/ffffff?Text=NB2" alt="Pengguna Baru 2"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/9c27b0/ffffff?Text=NB2-Large', 'Baru 2', 'Mencari teman kencan.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/3f51b5/ffffff?Text=NB3" alt="Pengguna Baru 3"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3f51b5/ffffff?Text=NB3-Large', 'Baru 3', 'Siap untuk petualangan baru.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/00bcd4/ffffff?Text=NB4" alt="Pengguna Baru 4"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bcd4/ffffff?Text=NB4-Large', 'Baru 4', 'Suka ngobrol dan berbagi cerita.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/4caf50/ffffff?Text=NB5" alt="Pengguna Baru 5"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4caf50/ffffff?Text=NB5-Large', 'Baru 5', 'Mencari koneksi yang tulus.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/ff9800/ffffff?Text=NB6" alt="Pengguna Baru 6"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ff9800/ffffff?Text=NB6-Large', 'Baru 6', 'Tertarik dengan seni dan musik.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/795548/ffffff?Text=NB7" alt="Pengguna Baru 7"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/795548/ffffff?Text=NB7-Large', 'Baru 7', 'Suka berolahraga dan kuliner.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/607d8b/ffffff?Text=NB8" alt="Pengguna Baru 8"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/607d8b/ffffff?Text=NB8-Large', 'Baru 8', 'Menikmati waktu santai dengan buku.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/f44336/ffffff?Text=NB9" alt="Pengguna Baru 9"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f44336/ffffff?Text=NB9-Large', 'Baru 9', 'Penyuka film dan diskusi menarik.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/00897b/ffffff?Text=NB10" alt="Pengguna Baru 10"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00897b/ffffff?Text=NB10-Large', 'Baru 10', 'Semangat mencari teman baru.')"></button></div>
             </div>
         </div>
     </section>
@@ -309,51 +70,16 @@
         <div class="container">
             <h3>Sang Idola</h3>
             <div class="user-gallery">
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/ffc0cb/ffffff?Text=ID1" alt="Idola 1">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffc0cb/ffffff?Text=ID1-Large', 'Idola 1', 'Banyak yang ingin mengenalnya.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/dda0dd/ffffff?Text=ID2" alt="Idola 2">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/dda0dd/ffffff?Text=ID2-Large', 'Idola 2', 'Memiliki banyak pengagum.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/f08080/ffffff?Text=ID3" alt="Idola 3">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f08080/ffffff?Text=ID3-Large', 'Idola 3', 'Sangat populer di sini.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/fa8072/ffffff?Text=ID4" alt="Idola 4">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/fa8072/ffffff?Text=ID4-Large', 'Idola 4', 'Selalu menarik perhatian.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com
-                        
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/fa8072/ffffff?Text=ID4-Large', 'Idola 4', 'Selalu menarik perhatian.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/ffdab9/ffffff?Text=ID5" alt="Idola 5">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffdab9/ffffff?Text=ID5-Large', 'Idola 5', 'Banyak yang ingin berkencan dengannya.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/fffacd/ffffff?Text=ID6" alt="Idola 6">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/fffacd/ffffff?Text=ID6-Large', 'Idola 6', 'Kepribadian yang memikat.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/afeeee/ffffff?Text=ID7" alt="Idola 7">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/afeeee/ffffff?Text=ID7-Large', 'Idola 7', 'Sering mendapat pesan.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/e0ffff/ffffff?Text=ID8" alt="Idola 8">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e0ffff/ffffff?Text=ID8-Large', 'Idola 8', 'Pesona yang tak tertahankan.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/f5f5dc/ffffff?Text=ID9" alt="Idola 9">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f5f5dc/ffffff?Text=ID9-Large', 'Idola 9', 'Banyak yang penasaran.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/ffe4c4/ffffff?Text=ID10" alt="Idola 10">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffe4c4/ffffff?Text=ID10-Large', 'Idola 10', 'Salah satu yang paling dicari.')"></button>
-                </div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/ffc0cb/ffffff?Text=ID1" alt="Idola 1"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffc0cb/ffffff?Text=ID1-Large', 'Idola 1', 'Banyak yang ingin mengenalnya.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/dda0dd/ffffff?Text=ID2" alt="Idola 2"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/dda0dd/ffffff?Text=ID2-Large', 'Idola 2', 'Memiliki banyak pengagum.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/f08080/ffffff?Text=ID3" alt="Idola 3"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f08080/ffffff?Text=ID3-Large', 'Idola 3', 'Sangat populer di sini.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/fa8072/ffffff?Text=ID4" alt="Idola 4"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/fa8072/ffffff?Text=ID4-Large', 'Idola 4', 'Selalu menarik perhatian.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/ffdab9/ffffff?Text=ID5" alt="Idola 5"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffdab9/ffffff?Text=ID5-Large', 'Idola 5', 'Banyak yang ingin berkencan dengannya.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/fffacd/ffffff?Text=ID6" alt="Idola 6"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/fffacd/ffffff?Text=ID6-Large', 'Idola 6', 'Kepribadian yang memikat.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/afeeee/ffffff?Text=ID7" alt="Idola 7"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/afeeee/ffffff?Text=ID7-Large', 'Idola 7', 'Sering mendapat pesan.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/e0ffff/ffffff?Text=ID8" alt="Idola 8"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e0ffff/ffffff?Text=ID8-Large', 'Idola 8', 'Pesona yang tak tertahankan.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/f5f5dc/ffffff?Text=ID9" alt="Idola 9"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f5f5dc/ffffff?Text=ID9-Large', 'Idola 9', 'Banyak yang penasaran.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/ffe4c4/ffffff?Text=ID10" alt="Idola 10"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffe4c4/ffffff?Text=ID10-Large', 'Idola 10', 'Salah satu yang paling dicari.')"></button></div>
             </div>
         </div>
     </section>
@@ -362,46 +88,16 @@
         <div class="container">
             <h3>Rating Tertinggi</h3>
             <div class="user-gallery">
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/87cefa/ffffff?Text=RT1" alt="Rating Tinggi 1">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/87cefa/ffffff?Text=RT1-Large', 'Rating 1', 'Mendapat ulasan positif.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/6495ed/ffffff?Text=RT2" alt="Rating Tinggi 2">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/6495ed/ffffff?Text=RT2-Large', 'Rating 2', 'Disukai banyak anggota.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/4682b4/ffffff?Text=RT3" alt="Rating Tinggi 3">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4682b4/ffffff?Text=RT3-Large', 'Rating 3', 'Pilihan populer di komunitas.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/4169e1/ffffff?Text=RT4" alt="Rating Tinggi 4">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4169e1/ffffff?Text=RT4-Large', 'Rating 4', 'Kualitas profil yang tinggi.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/1e90ff/ffffff?Text=RT5" alt="Rating Tinggi 5">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/1e90ff/ffffff?Text=RT5-Large', 'Rating 5', 'Interaksi yang menyenangkan.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/00bfff/ffffff?Text=RT6" alt="Rating Tinggi 6">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bfff/ffffff?Text=RT6-Large', 'Rating 6', 'Respon yang cepat dan ramah.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/add8e6/ffffff?Text=RT7" alt="Rating Tinggi 7">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/add8e6/ffffff?Text=RT7-Large', 'Rating 7', 'Profil yang informatif dan menarik.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/b0e0e6/ffffff?Text=RT8" alt="Rating Tinggi 8">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/b0e0e6/ffffff?Text=RT8-Large', 'Rating 8', 'Pengalaman berkencan yang positif.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/8fbc8f/ffffff?Text=RT9" alt="Rating Tinggi 9">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/8fbc8f/ffffff?Text=RT9-Large', 'Rating 9', 'Banyak yang merekomendasikan.')"></button>
-                </div>
-                <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/3cb371/ffffff?Text=RT10" alt="Rating Tinggi 10">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3cb371/ffffff?Text=RT10-Large', 'Rating 10', 'Salah satu yang terbaik di sini.')"></button>
-                </div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/87cefa/ffffff?Text=RT1" alt="Rating Tinggi 1"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/87cefa/ffffff?Text=RT1-Large', 'Rating 1', 'Mendapat ulasan positif.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/6495ed/ffffff?Text=RT2" alt="Rating Tinggi 2"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/6495ed/ffffff?Text=RT2-Large', 'Rating 2', 'Disukai banyak anggota.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/4682b4/ffffff?Text=RT3" alt="Rating Tinggi 3"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4682b4/ffffff?Text=RT3-Large', 'Rating 3', 'Pilihan populer di komunitas.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/4169e1/ffffff?Text=RT4" alt="Rating Tinggi 4"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4169e1/ffffff?Text=RT4-Large', 'Rating 4', 'Kualitas profil yang tinggi.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/1e90ff/ffffff?Text=RT5" alt="Rating Tinggi 5"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/1e90ff/ffffff?Text=RT5-Large', 'Rating 5', 'Interaksi yang menyenangkan.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/00bfff/ffffff?Text=RT6" alt="Rating Tinggi 6"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bfff/ffffff?Text=RT6-Large', 'Rating 6', 'Respon yang cepat dan ramah.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/add8e6/ffffff?Text=RT7" alt="Rating Tinggi 7"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/add8e6/ffffff?Text=RT7-Large', 'Rating 7', 'Profil yang informatif dan menarik.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/b0e0e6/ffffff?Text=RT8" alt="Rating Tinggi 8"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/b0e0e6/ffffff?Text=RT8-Large', 'Rating 8', 'Pengalaman berkencan yang positif.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/8fbc8f/ffffff?Text=RT9" alt="Rating Tinggi 9"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/8fbc8f/ffffff?Text=RT9-Large', 'Rating 9', 'Banyak yang merekomendasikan.')"></button></div>
+                <div class="user-profile-container"><img src="https://via.placeholder.com/150/3cb371/ffffff?Text=RT10" alt="Rating Tinggi 10"><button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3cb371/ffffff?Text=RT10-Large', 'Rating 10', 'Salah satu yang terbaik di sini.')"></button></div>
             </div>
             <a href="[Link Jelajahi Pengguna]" class="explore-button">Lihat Semua Profil</a>
             <a href="[Link Pendaftaran]" class="cta-button">Bergabunglah Sekarang</a>
@@ -468,3 +164,5 @@
 
 </body>
 </html>
+
+                                                        
