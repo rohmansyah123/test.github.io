@@ -1,1 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <title>[Nama Aplikasi/Situs Kencan Anda] - Temukan Jodohmu!</title>
+    <meta content='Temukan pasangan ideal Anda dengan [Nama Aplikasi/Situs Kencan Anda]. Bergabunglah sekarang dan mulai kencan!' name='description'/>
+    <meta content='aplikasi kencan, situs kencan, cari jodoh, single, dating online' name='keywords'/>
+    <meta content='Tim [Nama Aplikasi/Situs Kencan Anda]' name='author'/>
+    <link href='https://unbounce.com/landing-page-articles/what-is-a-landing-page/' rel='canonical'/>
+    <b:skin><![CDATA[
+        /* === Gaya CSS Popup Video === */
+        .video-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-popup-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+        .video-popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            border: none;
+            background: none;
+            line-height: 1;
+            padding: 0;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+        }
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
+        /* === Gaya CSS Modern === */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        header h1 {
+            margin: 0;
+            color: #dc3545;
+        }
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cm9tYW50aWN8ZW4&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .hero-content {
+            position: relative;
+            padding: 100px 0;
+        }
+        .hero-content h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #dc3545;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .cta-button:hover {
+            background-color: #c82333;
+        }
+        .features {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .features h3 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #343a40;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .feature {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .feature h4 {
+            margin-top: 0;
+            color: #343a40;
+        }
+        .download-section {
+            padding: 80px 0;
+            background-color: #e9ecef;
+            text-align: center;
+        }
+        .download-buttons a {
+            display: inline-block;
+            margin: 10px;
+        }
+        .download-buttons img {
+            height: 60px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #343a40;
+            color: #fff;
+            font-size: 0.9em;
+        }
+        /* === Responsif === */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .hero-content {
+                padding: 80px 15px;
+            }
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .download-buttons img {
+                height: 50px;
+            }
+        }
+    ]]></b:skin>
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "[Nama Aplikasi Kencan Anda]",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "Dating",
+      "description": "Temukan pasangan ideal Anda dengan aplikasi kencan kami.",
+      "url": "https://example.com/",
+      "offers": {
+        "@type": "Offer",
+        "price": "Gratis",
+        "priceCurrency": "IDR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "1000"
+      }
+    }
+    </script>
+    <script type='text/javascript'>
+        window.onload = function() {
+            document.getElementById('videoPopupOverlay').style.display = 'flex';
+        }
+
+        function closeVideoPopup() {
+            document.getElementById('videoPopupOverlay').style.display = 'none';
+            // Optional: Stop the video when closing
+            var iframe = document.querySelector('#videoPopupContent iframe');
+            if (iframe) {
+                var videoSrc = iframe.src;
+                iframe.src = videoSrc; // Reload iframe to stop video
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id='outer-wrapper'>
+      <div id='main-wrapper'>
+        <b:section class='main' id='main' showaddelement='no'>
+          <div id='videoPopupOverlay' class='video-popup-overlay'>
+              <div id='videoPopupContent' class='video-popup-content'>
+                  <button type='button' class='video-popup-close' onclick='closeVideoPopup()'>×</button>
+                  <div class='video-container'>
+                      <iframe src='https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID?autoplay=1' frameborder='0' allowfullscreen='allowfullscreen'></iframe>
+                      </div>
+              </div>
+          </div>
+          <header>
+              <div class='container'>
+                  <h1>[Nama Aplikasi/Situs Kencan Anda]</h1>
+              </div>
+          </header>
+          <section class='hero'>
+              <div class='hero-bg'></div>
+              <div class='container hero-content'>
+                  <h2>Temukan Cinta Anda Berikutnya</h2>
+                  <p>Bergabunglah dengan komunitas kami dan temukan orang yang tepat untuk Anda.</p>
+                  <a expr:href='data:blog.homepageUrl' class='cta-button'>Lihat Beranda</a>
+              </div>
+          </section>
+          <section class='features'>
+              <div class='container'>
+                  <h3>Mengapa Memilih [Nama Aplikasi/Situs Kencan Anda]?</h3>
+                  <div class='feature-grid'>
+                      <div class='feature'>
+                          <h4>Profil yang Detail</h4>
+                          <p>Buat profil yang menarik dan tunjukkan siapa diri Anda.</p>
+                      </div>
+                      <div class='feature'>
+                          <h4>Pencarian Cerdas</h4>
+                          <p>Temukan orang yang cocok berdasarkan preferensi Anda.</p>
+                      </div>
+                      <div class='feature'>
+                          <h4>Komunikasi Aman</h4>
+                          <p>Berinteraksi dengan nyaman dan aman dengan calon pasangan.</p>
+                      </div>
+                      <div class='feature'>
+                          <h4>Komunitas Luas</h4>
+                          <p>Ribuan pengguna siap untuk Anda temui.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <section class='download-section'>
+              <div class='container'>
+                  <h3>Unduh Aplikasi Kami Sekarang!</h3>
+                  <div class='download-buttons'>
+                      <a href='[Link Google Play]' target='_blank'><img height='60' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' alt='Google Play'/></a>
+                      <a href='[Link App Store]' target='_blank'><img height='60' src='https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg' alt='App Store'/></a>
+                      </div>
+                  <p>Atau kunjungi situs web kami di <a href='[Link Situs Web Anda]'>[Nama Aplikasi/Situs Kencan Anda]</a></p>
+              </div>
+          </section>
+          <footer>
+              <div class='container'>
+                  <p>© [Tahun] [Nama Aplikasi/Situs Kencan Anda]. All rights reserved.</p>
+              </div>
+          </footer>
+        </b:section>
+      </div>
+    </div>
+</body>
+            </html>
+            
