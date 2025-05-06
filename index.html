@@ -7,81 +7,159 @@
     <meta name="description" content="Temukan teman kencan dan koneksi yang bermakna di [Nama Situs Kencan Anda]. Bergabunglah dengan komunitas kami!">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background: #f4f4f4;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .container {
-            max-width: 960px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px;
             text-align: center;
         }
         header {
-            padding: 60px 0;
-            background-color: #fff;
-            border-bottom: 1px solid #eee;
+            background: linear-gradient(135deg, #ff69b4, #ffc0cb); /* Gradien romantis */
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+        header .container {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
         header h1 {
-            font-size: 3em;
-            color: #e91e63;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            margin-bottom: 15px;
         }
         header p {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 1.3em;
+            margin-bottom: 30px;
         }
         .cta-button {
             display: inline-block;
-            padding: 12px 24px;
-            background-color: #e91e63;
-            color: white;
+            padding: 15px 30px;
+            background-color: #fff;
+            color: #ff69b4;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
-            margin-top: 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
         }
         .cta-button:hover {
-            background-color: #d81b60;
+            background-color: #f0f0f0;
         }
         section {
-            padding: 40px 0;
-            background-color: #fff;
+            padding: 60px 0;
+            background-color: white;
             border-bottom: 1px solid #eee;
             text-align: center;
         }
         section h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #333;
-            margin-bottom: 20px;
-        }
-        section p {
-            color: #555;
             margin-bottom: 30px;
         }
-        .feature-grid {
+        .user-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .user-profile {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .user-profile:hover {
+            transform: scale(1.05);
+        }
+        .user-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
+            text-align: left;
         }
         .feature {
-            text-align: center;
-        }
-        .feature img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         .feature h3 {
-            color: #e91e63;
-            margin-bottom: 5px;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        /* Popup Slideshow Styles */
+        .slideshow-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .slideshow-modal {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            position: relative;
+            text-align: center;
+        }
+        .slideshow-image {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .slideshow-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slideshow-controls button {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            color: #555;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #777;
+            font-size: 0.9em;
+            background-color: #f4f4f4;
         }
 
         /* Responsive adjustments */
@@ -89,10 +167,13 @@
             .container {
                 padding: 20px;
             }
-            header h1 {
-                font-size: 2.5em;
+            header {
+                padding: 80px 0;
             }
-            .feature-grid {
+            header h1 {
+                font-size: 3em;
+            }
+            .features-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -103,58 +184,66 @@
     <header>
         <div class="container">
             <h1>[Nama Situs Kencan Anda]</h1>
-            <p>Temukan orang-orang menarik dan bangun koneksi yang Anda cari.</p>
-            <a href="[Link Pendaftaran]" class="cta-button">Bergabung Sekarang</a>
+            <p>Temukan koneksi yang tulus dan kencan yang berkesan.</p>
+            <a href="[Link Pendaftaran]" class="cta-button">Bergabunglah Sekarang</a>
         </div>
     </header>
 
     <section>
         <div class="container">
-            <h2>Temui Orang-Orang Hebat</h2>
-            <p>Lihat beberapa wajah menarik yang siap untuk bertemu Anda!</p>
-            <div class="feature-grid">
-                <div class="feature">
-                    <img src="https://via.placeholder.com/80/FFC0CB/FFFFFF?Text=User1" alt="Pengguna 1">
-                    <h3>[Nama Pengguna 1]</h3>
-                    <p>[Deskripsi singkat atau minat]</p>
+            <h2>Lihat Beberapa Orang Menarik</h2>
+            <div class="user-gallery">
+                <div class="user-profile" onclick="openSlideshow(0)">
+                    <img src="https://via.placeholder.com/150/e91e63/ffffff?Text=User1" alt="Pengguna 1">
                 </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/80/ADD8E6/FFFFFF?Text=User2" alt="Pengguna 2">
-                    <h3>[Nama Pengguna 2]</h3>
-                    <p>[Deskripsi singkat atau minat]</p>
+                <div class="user-profile" onclick="openSlideshow(1)">
+                    <img src="https://via.placeholder.com/150/9c27b0/ffffff?Text=User2" alt="Pengguna 2">
                 </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/80/90EE90/FFFFFF?Text=User3" alt="Pengguna 3">
-                    <h3>[Nama Pengguna 3]</h3>
-                    <p>[Deskripsi singkat atau minat]</p>
+                <div class="user-profile" onclick="openSlideshow(2)">
+                    <img src="https://via.placeholder.com/150/3f51b5/ffffff?Text=User3" alt="Pengguna 3">
                 </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/80/FFA07A/FFFFFF?Text=User4" alt="Pengguna 4">
-                    <h3>[Nama Pengguna 4]</h3>
-                    <p>[Deskripsi singkat atau minat]</p>
+                <div class="user-profile" onclick="openSlideshow(3)">
+                    <img src="https://via.placeholder.com/150/00bcd4/ffffff?Text=User4" alt="Pengguna 4">
+                </div>
+                <div class="user-profile" onclick="openSlideshow(4)">
+                    <img src="https://via.placeholder.com/150/4caf50/ffffff?Text=User5" alt="Pengguna 5">
+                </div>
+                <div class="user-profile" onclick="openSlideshow(5)">
+                    <img src="https://via.placeholder.com/150/ff9800/ffffff?Text=User6" alt="Pengguna 6">
+                </div>
+                <div class="user-profile" onclick="openSlideshow(6)">
+                    <img src="https://via.placeholder.com/150/795548/ffffff?Text=User7" alt="Pengguna 7">
+                </div>
+                <div class="user-profile" onclick="openSlideshow(7)">
+                    <img src="https://via.placeholder.com/150/607d8b/ffffff?Text=User8" alt="Pengguna 8">
+                </div>
+                <div class="user-profile" onclick="openSlideshow(8)">
+                    <img src="https://via.placeholder.com/150/f44336/ffffff?Text=User9" alt="Pengguna 9">
+                </div>
+                <div class="user-profile" onclick="openSlideshow(9)">
+                    <img src="https://via.placeholder.com/150/00897b/ffffff?Text=User10" alt="Pengguna 10">
                 </div>
             </div>
-            <p>Ada ribuan orang menarik lainnya yang menunggu untuk Anda temui!</p>
-            <a href="[Link Jelajahi Pengguna]" class="cta-button">Jelajahi Lebih Banyak</a>
+            <p>Temukan lebih banyak orang menarik lainnya hari ini!</p>
+            <a href="[Link Jelajahi Pengguna]" class="cta-button">Lihat Semua Profil</a>
         </div>
     </section>
 
     <section>
         <div class="container">
-            <h2>Bagaimana Cara Kerjanya?</h2>
-            <p>Mudah dan cepat untuk mulai bertemu orang baru.</p>
-            <div class="feature-grid">
+            <h2>Bagaimana Ini Bekerja?</h2>
+            <div class="features-grid">
                 <div class="feature">
-                    <h3>Buat Profil</h3>
-                    <p>Bagikan siapa diri Anda dan apa yang Anda cari.</p>
+                    <h3>Buat Profil Menarik</h3>
+                    <p>Unggah foto dan ceritakan tentang diri Anda untuk menarik perhatian.</p>
                 </div>
                 <div class="feature">
-                    <h3>Temukan Kecocokan</h3>
-                    <p>Telusuri profil atau gunakan fitur pencocokan kami.</p>
+                    <h3>Temukan Kecocokan Ideal</h3>
+                    <p>Gunakan filter dan algoritma cerdas untuk menemukan orang yang tepat.</p>
                 </div>
                 <div class="feature">
-                    <h3>Mulai Berinteraksi</h3>
-                    <p>Kirim pesan dan atur kencan!</p>
+                    <h3>Mulai Obrolan</h3>
+                    <p>Kirim pesan dan kenali satu sama lain dalam lingkungan yang aman.</p>
                 </div>
             </div>
         </div>
@@ -165,6 +254,50 @@
             <p>&copy; 2025 [Nama Situs Kencan Anda]. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="slideshowOverlay" class="slideshow-overlay">
+        <div class="slideshow-modal">
+            <button class="close-button" onclick="closeSlideshow()">×</button>
+            <img id="slideshowImage" class="slideshow-image" src="" alt="Foto Profil">
+            <div class="slideshow-controls">
+                <button onclick="prevSlide()">&#10094;</button>
+                <span id="slideNumber">1 / 10</span>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slideshowOverlay = document.getElementById('slideshowOverlay');
+        const slideshowImage = document.getElementById('slideshowImage');
+        const slideNumberDisplay = document.getElementById('slideNumber');
+        const userProfiles = document.querySelectorAll('.user-profile img');
+        const profileImages = Array.from(userProfiles).map(img => img.src);
+        let currentIndex = 0;
+
+        function openSlideshow(index) {
+            currentIndex = index;
+            slideshowImage.src = profileImages[currentIndex];
+            slideNumberDisplay.textContent = `${currentIndex + 1} / ${profileImages.length}`;
+            slideshowOverlay.style.display = 'flex';
+        }
+
+        function closeSlideshow() {
+            slideshowOverlay.style.display = 'none';
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % profileImages.length;
+            slideshowImage.src = profileImages[currentIndex];
+            slideNumberDisplay.textContent = `${currentIndex + 1} / ${profileImages.length}`;
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + profileImages.length) % profileImages.length;
+            slideshowImage.src = profileImages[currentIndex];
+            slideNumberDisplay.textContent = `${currentIndex + 1} / ${profileImages.length}`;
+        }
+    </script>
 
 </body>
 </html>
