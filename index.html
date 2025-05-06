@@ -63,6 +63,15 @@
             color: #333;
             margin-bottom: 30px;
         }
+        .user-gallery-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .user-gallery-section h3 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
         .user-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ukuran gambar diperbesar sedikit */
@@ -248,114 +257,74 @@
         </div>
     </header>
 
-    <section>
+    <section class="user-gallery-section">
         <div class="container">
-            <h2>Lihat Beberapa Orang Menarik</h2>
+            <h3>Pengguna Baru</h3>
             <div class="user-gallery">
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/e91e63/ffffff?Text=User1" alt="Pengguna 1">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e91e63/ffffff?Text=User1-Large', 'User 1', 'Menyukai petualangan dan kopi.')"></button>
+                    <img src="https://via.placeholder.com/150/e91e63/ffffff?Text=NB1" alt="Pengguna Baru 1">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e91e63/ffffff?Text=NB1-Large', 'Baru 1', 'Senang bertemu orang baru!')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/9c27b0/ffffff?Text=User2" alt="Pengguna 2">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/9c27b0/ffffff?Text=User2-Large', 'User 2', 'Pecinta buku dan alam.')"></button>
+                    <img src="https://via.placeholder.com/150/9c27b0/ffffff?Text=NB2" alt="Pengguna Baru 2">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/9c27b0/ffffff?Text=NB2-Large', 'Baru 2', 'Mencari teman kencan.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/3f51b5/ffffff?Text=User3" alt="Pengguna 3">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3f51b5/ffffff?Text=User3-Large', 'User 3', 'Musik, seni, dan percakapan mendalam.')"></button>
+                    <img src="https://via.placeholder.com/150/3f51b5/ffffff?Text=NB3" alt="Pengguna Baru 3">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3f51b5/ffffff?Text=NB3-Large', 'Baru 3', 'Siap untuk petualangan baru.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/00bcd4/ffffff?Text=User4" alt="Pengguna 4">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bcd4/ffffff?Text=User4-Large', 'User 4', 'Humoris dan suka mencoba hal baru.')"></button>
+                    <img src="https://via.placeholder.com/150/00bcd4/ffffff?Text=NB4" alt="Pengguna Baru 4">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bcd4/ffffff?Text=NB4-Large', 'Baru 4', 'Suka ngobrol dan berbagi cerita.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/4caf50/ffffff?Text=User5" alt="Pengguna 5">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4caf50/ffffff?Text=User5-Large', 'User 5', 'Filosofi, hiking, dan makanan enak.')"></button>
+                    <img src="https://via.placeholder.com/150/4caf50/ffffff?Text=NB5" alt="Pengguna Baru 5">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4caf50/ffffff?Text=NB5-Large', 'Baru 5', 'Mencari koneksi yang tulus.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/ff9800/ffffff?Text=User6" alt="Pengguna 6">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ff9800/ffffff?Text=User6-Large', 'User 6', 'Fotografi, traveling, dan kopi pagi.')"></button>
+                    <img src="https://via.placeholder.com/150/ff9800/ffffff?Text=NB6" alt="Pengguna Baru 6">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ff9800/ffffff?Text=NB6-Large', 'Baru 6', 'Tertarik dengan seni dan musik.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/795548/ffffff?Text=User7" alt="Pengguna 7">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/795548/ffffff?Text=User7-Large', 'User 7', 'Coding, game, dan pizza.')"></button>
+                    <img src="https://via.placeholder.com/150/795548/ffffff?Text=NB7" alt="Pengguna Baru 7">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/795548/ffffff?Text=NB7-Large', 'Baru 7', 'Suka berolahraga dan kuliner.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/607d8b/ffffff?Text=User8" alt="Pengguna 8">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/607d8b/ffffff?Text=User8-Large', 'User 8', 'Musik jazz, seni, dan jalan-jalan di kota.')"></button>
+                    <img src="https://via.placeholder.com/150/607d8b/ffffff?Text=NB8" alt="Pengguna Baru 8">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/607d8b/ffffff?Text=NB8-Large', 'Baru 8', 'Menikmati waktu santai dengan buku.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/f44336/ffffff?Text=User9" alt="Pengguna 9">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f44336/ffffff?Text=User9-Large', 'User 9', 'Memasak, berkebun, dan film klasik.')"></button>
+                    <img src="https://via.placeholder.com/150/f44336/ffffff?Text=NB9" alt="Pengguna Baru 9">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f44336/ffffff?Text=NB9-Large', 'Baru 9', 'Penyuka film dan diskusi menarik.')"></button>
                 </div>
                 <div class="user-profile-container">
-                    <img src="https://via.placeholder.com/150/00897b/ffffff?Text=User10" alt="Pengguna 10">
-                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00897b/ffffff?Text=User10-Large', 'User 10', 'Olahraga, traveling, dan bertemu orang baru.')"></button>
-                </div>
-            </div>
-            <p>Temukan lebih banyak orang menarik lainnya hari ini!</p>
-            <a href="[Link Jelajahi Pengguna]" class="explore-button">Lihat Semua Profil</a>
-            <a href="[Link Pendaftaran]" class="cta-button">Bergabunglah Sekarang</a>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <h2>Bagaimana Ini Bekerja?</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <h3>Buat Profil Menarik</h3>
-                    <p>Unggah foto dan ceritakan tentang diri Anda untuk menarik perhatian.</p>
-                </div>
-                <div class="feature">
-                    <h3>Temukan Kecocokan Ideal</h3>
-                    <p>Gunakan filter dan algoritma cerdas untuk menemukan orang yang tepat.</p>
-                </div>
-                <div class="feature">
-                    <h3>Mulai Obrolan</h3>
-                    <p>Kirim pesan dan kenali satu sama lain dalam lingkungan yang aman.</p>
+                    <img src="https://via.placeholder.com/150/00897b/ffffff?Text=NB10" alt="Pengguna Baru 10">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00897b/ffffff?Text=NB10-Large', 'Baru 10', 'Semangat mencari teman baru.')"></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <section class="user-gallery-section">
         <div class="container">
-            <p>&copy; 2025 [Nama Situs Kencan Anda]. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <div id="profilePopupOverlay" class="profile-popup-overlay">
-        <div id="profilePopup" class="profile-popup">
-            <button class="popup-close-button" onclick="closeProfilePopup()">×</button>
-            <img id="popupImage" class="popup-image" src="" alt="Foto Profil">
-            <div id="popupDetails" class="popup-details">
-                <h3 id="popupName"></h3>
-                <p id="popupBio"></p>
-                <a href="[Link Lihat Profil Lengkap]" class="cta-button">Lihat Profil Lengkap</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const profilePopupOverlay = document.getElementById('profilePopupOverlay');
-        const profilePopup = document.getElementById('profilePopup');
-        const popupImage = document.getElementById('popupImage');
-        const popupName = document.getElementById('popupName');
-        const popupBio = document.getElementById('popupBio');
-        const userProfileContainers = document.querySelectorAll('.user-profile-container');
-
-        function openProfilePopup(imageSrc, name, bio) {
-            popupImage.src = imageSrc;
-            popupName.textContent = name;
-            popupBio.textContent = bio;
-            profilePopupOverlay.style.display = 'flex';
-        }
-
-        function closeProfilePopup() {
-            profilePopupOverlay.style.display = 'none';
-        }
-    </script>
-
-</body>
-</html>
+            <h3>Sang Idola</h3>
+            <div class="user-gallery">
+                <div class="user-profile-container">
+                    <img src="https://via.placeholder.com/150/ffc0cb/ffffff?Text=ID1" alt="Idola 1">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ffc0cb/ffffff?Text=ID1-Large', 'Idola 1', 'Banyak yang ingin mengenalnya.')"></button>
+                </div>
+                <div class="user-profile-container">
+                    <img src="https://via.placeholder.com/150/dda0dd/ffffff?Text=ID2" alt="Idola 2">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/dda0dd/ffffff?Text=ID2-Large', 'Idola 2', 'Memiliki banyak pengagum.')"></button>
+                </div>
+                <div class="user-profile-container">
+                    <img src="https://via.placeholder.com/150/f08080/ffffff?Text=ID3" alt="Idola 3">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f08080/ffffff?Text=ID3-Large', 'Idola 3', 'Sangat populer di sini.')"></button>
+                </div>
+                <div class="user-profile-container">
+                    <img src="https://via.placeholder.com/150/fa8072/ffffff?Text=ID4" alt="Idola 4">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/fa8072/ffffff?Text=ID4-Large', 'Idola 4', 'Selalu menarik perhatian.')"></button>
+                </div>
+                <div class="user-profile-container">
+                    <img src="https://via.placeholder.com
+                        
