@@ -47,7 +47,7 @@
             font-weight: bold;
             font-size: 1.1em;
             transition: background-color 0.3s ease;
-            margin-top: 20px; /* Tambahkan margin-top agar tidak terlalu dekat dengan tombol lihat semua profil */
+            margin-top: 20px;
         }
         .cta-button:hover {
             background-color: #f0f0f0;
@@ -65,25 +65,56 @@
         }
         .user-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ukuran gambar diperbesar sedikit */
             gap: 20px;
             margin-bottom: 40px;
         }
-        .user-profile {
+        .user-profile-container {
+            position: relative;
             cursor: pointer;
             overflow: hidden;
             border-radius: 50%;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease-in-out;
+            width: 150px; /* Ukuran tetap untuk lingkaran */
+            height: 150px; /* Ukuran tetap untuk lingkaran */
+            margin: 0 auto; /* Agar lingkaran berada di tengah grid cell */
         }
-        .user-profile:hover {
+        .user-profile-container:hover {
             transform: scale(1.05);
         }
-        .user-profile img {
+        .user-profile-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .user-profile-container:hover .play-button {
+            opacity: 1;
+        }
+        .play-button::before {
+            content: '\25B6'; /* Unicode play symbol */
+            font-size: 1.5em;
+            margin-left: 3px;
         }
         .features-grid {
             display: grid;
@@ -117,49 +148,37 @@
             background-color: #d81b60;
         }
 
-        /* Popup Slideshow Styles */
-        .slideshow-overlay {
+        /* Popup Styles */
+        .profile-popup-overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
             justify-content: center;
             align-items: center;
         }
-        .slideshow-modal {
+        .profile-popup {
             background-color: #fff;
             border-radius: 8px;
-            padding: 20px;
-            max-width: 90%;
-            max-height: 90%;
+            padding: 30px;
+            text-align: center;
+            max-width: 80%;
+            max-height: 80%;
             overflow: auto;
             position: relative;
-            text-align: center;
         }
-        .slideshow-image {
+        .popup-image {
             max-width: 100%;
-            max-height: 70vh;
+            max-height: 50vh;
             object-fit: contain;
             margin-bottom: 20px;
+            border-radius: 8px;
         }
-        .slideshow-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .slideshow-controls button {
-            background: none;
-            border: none;
-            color: #333;
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 10px;
-        }
-        .close-button {
+        .popup-close-button {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -168,6 +187,15 @@
             cursor: pointer;
             background: none;
             border: none;
+        }
+        .popup-details h3 {
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+        .popup-details p {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: left;
         }
 
         footer {
@@ -192,6 +220,22 @@
             .features-grid {
                 grid-template-columns: 1fr;
             }
+            .user-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Kembali ke ukuran lebih kecil di mobile */
+            }
+            .user-profile-container {
+                width: 120px;
+                height: 120px;
+            }
+            .play-button {
+                width: 30px;
+                height: 30px;
+                font-size: 1em;
+            }
+            .play-button::before {
+                font-size: 1.2em;
+                margin-left: 2px;
+            }
         }
     </style>
 </head>
@@ -208,40 +252,51 @@
         <div class="container">
             <h2>Lihat Beberapa Orang Menarik</h2>
             <div class="user-gallery">
-                <div class="user-profile" onclick="openSlideshow(0)">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScPiUt7ijyADZSkEfr6DLeCcucM9wMaGnMfFrG4aUyFQ&s" alt="Pengguna 1">
+                <div class="user-profile-container">
+                    <img src="https://via.placeholder.com/150/e91e63/ffffff?Text=User1" alt="Pengguna 1">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/e91e63/ffffff?Text=User1-Large', 'User 1', 'Menyukai petualangan dan kopi.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(1)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/9c27b0/ffffff?Text=User2" alt="Pengguna 2">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/9c27b0/ffffff?Text=User2-Large', 'User 2', 'Pecinta buku dan alam.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(2)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/3f51b5/ffffff?Text=User3" alt="Pengguna 3">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/3f51b5/ffffff?Text=User3-Large', 'User 3', 'Musik, seni, dan percakapan mendalam.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(3)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/00bcd4/ffffff?Text=User4" alt="Pengguna 4">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00bcd4/ffffff?Text=User4-Large', 'User 4', 'Humoris dan suka mencoba hal baru.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(4)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/4caf50/ffffff?Text=User5" alt="Pengguna 5">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/4caf50/ffffff?Text=User5-Large', 'User 5', 'Filosofi, hiking, dan makanan enak.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(5)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/ff9800/ffffff?Text=User6" alt="Pengguna 6">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/ff9800/ffffff?Text=User6-Large', 'User 6', 'Fotografi, traveling, dan kopi pagi.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(6)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/795548/ffffff?Text=User7" alt="Pengguna 7">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/795548/ffffff?Text=User7-Large', 'User 7', 'Coding, game, dan pizza.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(7)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/607d8b/ffffff?Text=User8" alt="Pengguna 8">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/607d8b/ffffff?Text=User8-Large', 'User 8', 'Musik jazz, seni, dan jalan-jalan di kota.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(8)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/f44336/ffffff?Text=User9" alt="Pengguna 9">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/f44336/ffffff?Text=User9-Large', 'User 9', 'Memasak, berkebun, dan film klasik.')"></button>
                 </div>
-                <div class="user-profile" onclick="openSlideshow(9)">
+                <div class="user-profile-container">
                     <img src="https://via.placeholder.com/150/00897b/ffffff?Text=User10" alt="Pengguna 10">
+                    <button class="play-button" onclick="openProfilePopup('https://via.placeholder.com/300/00897b/ffffff?Text=User10-Large', 'User 10', 'Olahraga, traveling, dan bertemu orang baru.')"></button>
                 </div>
             </div>
             <p>Temukan lebih banyak orang menarik lainnya hari ini!</p>
             <a href="[Link Jelajahi Pengguna]" class="explore-button">Lihat Semua Profil</a>
-            <a href="[Link Pendaftaran]" class="cta-button">Bergabunglah Sekarang</a> </div>
+            <a href="[Link Pendaftaran]" class="cta-button">Bergabunglah Sekarang</a>
+        </div>
     </section>
 
     <section>
@@ -270,47 +325,35 @@
         </div>
     </footer>
 
-    <div id="slideshowOverlay" class="slideshow-overlay">
-        <div class="slideshow-modal">
-            <button class="close-button" onclick="closeSlideshow()">×</button>
-            <img id="slideshowImage" class="slideshow-image" src="" alt="Foto Profil">
-            <div class="slideshow-controls">
-                <button onclick="prevSlide()">&#10094;</button>
-                <span id="slideNumber">1 / 10</span>
-                <button onclick="nextSlide()">&#10095;</button>
+    <div id="profilePopupOverlay" class="profile-popup-overlay">
+        <div id="profilePopup" class="profile-popup">
+            <button class="popup-close-button" onclick="closeProfilePopup()">×</button>
+            <img id="popupImage" class="popup-image" src="" alt="Foto Profil">
+            <div id="popupDetails" class="popup-details">
+                <h3 id="popupName"></h3>
+                <p id="popupBio"></p>
+                <a href="[Link Lihat Profil Lengkap]" class="cta-button">Lihat Profil Lengkap</a>
             </div>
         </div>
     </div>
 
     <script>
-        const slideshowOverlay = document.getElementById('slideshowOverlay');
-        const slideshowImage = document.getElementById('slideshowImage');
-        const slideNumberDisplay = document.getElementById('slideNumber');
-        const userProfiles = document.querySelectorAll('.user-profile img');
-        const profileImages = Array.from(userProfiles).map(img => img.src);
-        let currentIndex = 0;
+        const profilePopupOverlay = document.getElementById('profilePopupOverlay');
+        const profilePopup = document.getElementById('profilePopup');
+        const popupImage = document.getElementById('popupImage');
+        const popupName = document.getElementById('popupName');
+        const popupBio = document.getElementById('popupBio');
+        const userProfileContainers = document.querySelectorAll('.user-profile-container');
 
-        function openSlideshow(index) {
-            currentIndex = index;
-            slideshowImage.src = profileImages[currentIndex];
-            slideNumberDisplay.textContent = `${currentIndex + 1} / ${profileImages.length}`;
-            slideshowOverlay.style.display = 'flex';
+        function openProfilePopup(imageSrc, name, bio) {
+            popupImage.src = imageSrc;
+            popupName.textContent = name;
+            popupBio.textContent = bio;
+            profilePopupOverlay.style.display = 'flex';
         }
 
-        function closeSlideshow() {
-            slideshowOverlay.style.display = 'none';
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % profileImages.length;
-            slideshowImage.src = profileImages[currentIndex];
-            slideNumberDisplay.textContent = `${currentIndex + 1} / ${profileImages.length}`;
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + profileImages.length) % profileImages.length;
-            slideshowImage.src = profileImages[currentIndex];
-            slideNumberDisplay.textContent = `${currentIndex + 1} / ${profileImages.length}`;
+        function closeProfilePopup() {
+            profilePopupOverlay.style.display = 'none';
         }
     </script>
 
