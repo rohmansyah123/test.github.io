@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penawaran dan Notifikasi Menarik</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .native-banner-container {
+            margin-top: 20px;
+            /* Styling agar native banner terlihat menyatu */
+        }
+        .push-notification-prompt {
+            margin-top: 30px;
+        }
+        .push-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .push-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>Temukan Hal Menarik di Sini!</h1>
+        <p>Lihat penawaran spesial kami dan dapatkan notifikasi terbaru langsung dari browser Anda.</p>
+
+        <div class="native-banner-container">
+            </div>
+
+        <div class="push-notification-prompt">
+            <h2>Jangan Lewatkan Update Kami!</h2>
+            <p>Klik tombol di bawah ini untuk mengaktifkan notifikasi browser.</p>
+            <button id="enablePush" class="push-button">Aktifkan Notifikasi</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pushButton = document.getElementById('enablePush');
+
+            if ('serviceWorker' in navigator && 'PushManager' in window) {
+                console.log('Service Worker and Push are supported!');
+
+                pushButton.addEventListener('click', subscribeUserToPush);
+            } else {
+                console.warn('Push messaging is not supported.');
+                pushButton.style.display = 'none'; // Sembunyikan tombol jika tidak didukung
+            }
+
+            function subscribeUserToPush() {
+                // Di sini Anda akan menambahkan logika untuk meminta izin notifikasi
+                // dan berlangganan ke push service (biasanya melibatkan Service Worker).
+                // Kode spesifik ini sangat bergantung pada implementasi Adsterra atau penyedia push lainnya.
+                alert('Fitur notifikasi push akan diimplementasikan di sini.\n(Perlu integrasi lebih lanjut dengan penyedia push)');
+                // Contoh sederhana (tidak berfungsi langsung dengan Adsterra Push):
+                // Notification.requestPermission().then(function(result) {
+                //     console.log('User choice', result);
+                //     if (result === 'granted') {
+                //         console.log('Push Granted!');
+                //         // Lakukan pendaftaran ke push service di sini
+                //     } else {
+                //         console.log('Push Denied!');
+                //     }
+                // });
+            }
+        });
+    </script>
+
+    </body>
+</html>
